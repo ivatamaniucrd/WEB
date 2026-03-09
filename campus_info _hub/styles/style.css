@@ -1,0 +1,385 @@
+/* ==========================================================================
+   Variabile CSS pentru Teme (Light / Dark Mode)
+   ========================================================================== */
+:root {
+    --primary-color: #3b82f6;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --tag-bg: #e2e8f0;
+    --tag-hover: #cbd5e1;
+    --tag-active: #3b82f6;
+    --border-color: #e2e8f0;
+}
+
+/* Suprascrierea variabilelor cand body are clasa "dark-mode" */
+body.dark-mode {
+    --primary-color: #60a5fa;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --tag-bg: #334155;
+    --tag-hover: #475569;
+    --border-color: #334155;
+}
+
+/* ==========================================================================
+   Setări Generale
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    /* Tranzitie lina pentru schimbarea temei */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Header & Butoane (Centrate si Simetrice)
+   ========================================================================== */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+.header-top {
+    /* Folosim Grid pentru a imparti spatiul in 3: stanga(gol), centru(titlu), dreapta(buton) */
+    display: grid; 
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header-top h1 { 
+    grid-column: 2; /* Forteaza titlul sa stea pe mijloc */
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.header-top .btn {
+    grid-column: 3; /* Forteaza butonul sa stea in dreapta */
+    justify-self: end; 
+}
+
+header p {
+    color: var(--text-muted);
+    margin-top: 5px;
+    font-size: 1.1rem;
+}
+
+/* Stiluri generale pentru butoane */
+.btn {
+    background-color: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn:hover { background-color: var(--tag-hover); }
+.btn-small { padding: 4px 10px; font-size: 0.8rem; margin-top: 10px; }
+
+/* ==========================================================================
+   Navigație (Meniul centrat)
+   ========================================================================== */
+nav {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); 
+}
+
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; /* Centreaza link-urile pe orizontala */
+    gap: 25px; 
+    flex-wrap: wrap; 
+}
+
+nav a { 
+    text-decoration: none; 
+    color: var(--primary-color); 
+    font-weight: 600; 
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav a:hover { 
+    background-color: var(--tag-bg);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Controale (Search Bar & Filtre)
+   ========================================================================== */
+.controls {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+#search-bar {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-color);
+    color: var(--text-main);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+#search-bar:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* ==========================================================================
+   Tag-uri Interactive
+   ========================================================================== */
+.filter-section h3 { margin-bottom: 10px; font-size: 1.1rem; }
+
+.tags-container { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+.tag {
+    background: var(--tag-bg);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+}
+
+.tag:hover { background: var(--tag-hover); }
+
+.tag.active {
+    background: var(--tag-active);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* ==========================================================================
+   Secțiunea Rezultate & Carduri
+   ========================================================================== */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centreaza titlul sectiunii cu rezultate */
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.resource-list {
+    display: grid;
+    /* Face cardurile responsive. Minim 300px pe card. */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    list-style: none;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.card h3 { 
+    color: var(--primary-color); 
+    margin-bottom: 12px; 
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--tag-bg);
+    padding-bottom: 5px;
+}
+
+.card p { 
+    font-size: 0.95rem; 
+    color: var(--text-muted); 
+    margin-bottom: 8px; 
+}
+
+.card strong {
+    color: var(--text-main);
+}
+
+.card-tags { 
+    margin-top: 15px; 
+    display: flex; 
+    gap: 6px; 
+    flex-wrap: wrap; 
+}
+
+.card-tags .tag { 
+    font-size: 0.75rem; 
+    padding: 4px 10px; 
+    cursor: default; /* Aceste taguri din interiorul cardului nu sunt clickabile */
+}
+
+.card-tags .tag:hover {
+    background: var(--tag-bg); /* Opreste efectul de hover pe ele */
+}
+
+/* ==========================================================================
+   Design Responsiv (pentru Telefoane Mobile)
+   ========================================================================== */
+@media (max-width: 600px) {
+    .header-top {
+        display: flex;
+        flex-direction: column; /* Pune elementele unul sub altul */
+        gap: 15px;
+    }
+    
+    .header-top h1 { order: 1; }
+    
+    .header-top .btn {
+        order: 2;
+        width: 100%; /* Face butonul cat tot ecranul pe telefon */
+    }
+
+    nav ul { gap: 10px; }
+}
+
+/* ==========================================================================
+   Layout Pagini Individuale (Design Poza 4)
+   ========================================================================== */
+.presentation-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+/* Colajul de imagini din stanga */
+.photo-gallery {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 15px;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: 100%;
+    min-height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.img-main {
+    grid-column: span 2; /* Imaginea principala ocupa 2 coloane */
+    height: 250px !important;
+}
+
+/* Textul din dreapta */
+.presentation-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.presentation-info h2 {
+    font-size: 2.2rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    border: none;
+}
+
+/* Linia de sub titlu (ca in poza ta) */
+.presentation-info h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #ef4444; /* Culoare accent rosu */
+    border-radius: 2px;
+}
+
+.presentation-info p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.presentation-info ul {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.presentation-info li {
+    margin-bottom: 10px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.presentation-info li span {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Responsivitate pentru ecrane mici */
+@media (max-width: 850px) {
+    .presentation-container {
+        flex-direction: column; /* Pune imaginile deasupra textului pe mobil */
+    }
+}

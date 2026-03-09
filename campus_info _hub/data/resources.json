@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Biblioteca Centrală",
+    "type": "studiu",
+    "location": "Clădirea A, Etaj 1",
+    "program": { "luni_vineri": "08:00 - 20:00", "weekend": "09:00 - 14:00" },
+    "tags": ["liniște", "cărți", "calculatoare", "wi-fi"]
+  },
+  {
+    "id": 2,
+    "name": "Cantina Studențească",
+    "type": "mâncare",
+    "location": "Clădirea B, Parter",
+    "program": { "luni_vineri": "11:30 - 16:00", "weekend": "Închis" },
+    "tags": ["meniul zilei", "cafea", "socializare", "ieftin"]
+  },
+  {
+    "id": 3,
+    "name": "Evenimente și Conferințe",
+    "type": "social",
+    "location": "Aula Magna",
+    "program": { "luni_vineri": "18:00 - 21:00", "weekend": "10:00 - 22:00" },
+    "tags": ["networking", "socializare", "workshop", "prezentări"]
+  },
+  {
+    "id": 4,
+    "name": "Sala de Lectură 2",
+    "type": "studiu",
+    "location": "Clădirea C, Etaj 2",
+    "program": { "luni_vineri": "09:00 - 22:00", "weekend": "09:00 - 18:00" },
+    "tags": ["liniște", "prize", "lumină naturală"]
+  }
+]

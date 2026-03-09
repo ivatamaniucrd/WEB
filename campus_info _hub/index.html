@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Info Hub</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div></div> <h1>Campus Info Hub</h1>
+            <button id="theme-toggle" class="btn">🌙 Dark Mode</button>
+        </div>
+        <p>Găsește rapid resursele de care ai nevoie în campus.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="pages/library.html">Biblioteca</a></li>
+            <li><a href="pages/cafeteria.html">Cantina</a></li>
+            <li><a href="pages/events.html">Evenimente</a></li>
+            <li><a href="https://www.edu.ro" target="_blank">Edu.ro</a></li>
+        </ul>
+    </nav>
+
+    <main id="app">
+        <section class="controls">
+            <input type="text" id="search-bar" placeholder="🔍 Caută o resursă (ex: Cantina)...">
+            <div class="filter-section">
+                <h3>Filtrează după Tag:</h3>
+                <div id="tags-container" class="tags-container"></div>
+                <button id="reset-filters" class="btn btn-small" style="display: none;">Resetare Filtre</button>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2 id="results-title">Toate Resursele</h2>
+                <span id="results-count" class="badge">0</span>
+            </div>
+            <ul id="resources-list" class="resource-list"></ul>
+        </section>
+    </main>
+
+    <script src="scripts/app.js"></script>
+</body>
+</html>

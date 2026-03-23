@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laborator 3 - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light">
+  <div class="page-shell">
+    <header class="topbar glass">
+      <div class="brand-wrap">
+        <div class="brand-dot"></div>
+        <span class="brand">Lab 3 Web Storage</span>
+      </div>
+      <nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="preferences.html">Preferințe</a></li>
+        <li><a href="cookies-info.html">Cookies Info</a></li>
+        
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="cart.html">Coș</a></li>
+        <li><a href="login.html">Autentificare</a></li>
+    </ul>
+
+    <div class="theme-switch-wrapper">
+        <label for="theme-toggle" style="margin-bottom: 0; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Dark Mode</label>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+</nav>
+    </header>
+
+    <main class="container">
+      <section class="hero glass">
+        <div class="hero-text">
+          <p class="eyebrow">HTTP • Cookies • Storage • Sessions</p>
+          <h1 id="welcomeMessage">Bine ai venit, Vizitator</h1>
+          <p class="hero-subtitle">
+            Gestionare elegantă a cookie-urilor, localStorage și sessionStorage,
+            într-o interfață modernă și clară.
+          </p>
+          <div class="hero-actions">
+            <a href="preferences.html" class="btn btn-primary">Configurează preferințele</a>
+            <a href="login.html" class="btn btn-secondary">Intră în cont</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="mini-stat">
+            <span>Vizite</span>
+            <strong id="visitsCount">0</strong>
+          </div>
+          <div class="mini-stat">
+            <span>Tema</span>
+            <strong id="themeLabel">light</strong>
+          </div>
+          <div class="mini-stat">
+            <span>Status</span>
+            <strong>Activ</strong>
+          </div>
+        </div>
+      </section>
+
+      <div id="alertBox"></div>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Cookie-uri active</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nume</th>
+                <th>Valoare</th>
+              </tr>
+            </thead>
+            <tbody id="cookiesTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Date din localStorage</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+              </tr>
+            </thead>
+            <tbody id="localStorageTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Date din sessionStorage</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+              </tr>
+            </thead>
+            <tbody id="sessionStorageTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card danger-card">
+        <div class="section-head">
+          <h2>Reset complet</h2>
+          <button id="clearAllBtn" class="btn btn-danger">Șterge Tot</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/cookies.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

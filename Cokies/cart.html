@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coș de Cumpărături</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="preferences.html">Preferințe</a></li>
+        <li><a href="cookies-info.html">Cookies Info</a></li>
+        
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="cart.html">Coș</a></li>
+        <li><a href="login.html">Autentificare</a></li>
+    </ul>
+
+    <div class="theme-switch-wrapper">
+        <label for="theme-toggle" style="margin-bottom: 0; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Dark Mode</label>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+</nav>
+
+        <h1>Coșul tău</h1>
+
+        <div class="table-responsive" style="padding: 24px;">
+            <h3>Adaugă Produse</h3>
+            <form id="add-to-cart-form" style="display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap;">
+                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                    <label for="product-select">Produs</label>
+                    <select id="product-select" required>
+                        </select>
+                </div>
+                <div class="form-group" style="width: 100px; margin-bottom: 0;">
+                    <label for="product-qty">Cantitate</label>
+                    <input type="number" id="product-qty" min="1" max="10" value="1" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Adaugă în Coș</button>
+            </form>
+        </div>
+
+        <div class="table-responsive">
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Produs</th>
+                        <th>Preț Unitar</th>
+                        <th>Cantitate</th>
+                        <th>Subtotal</th>
+                        <th>Acțiune</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                    </tbody>
+            </table>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+            <h2>Total: <span id="cart-total" style="color: var(--accent-color);">0</span> RON</h2>
+            <button id="clear-cart-btn" class="btn btn-danger">Golește Coșul</button>
+        </div>
+    </div>
+
+    <script src="js/cookies.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

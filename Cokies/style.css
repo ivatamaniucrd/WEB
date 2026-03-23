@@ -1,0 +1,286 @@
+
+:root {
+    /* Tema Luminoasă (Premium Light) */
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e8ecf2 100%);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-main: #1d1d1f;
+    --text-secondary: #86868b;
+    --accent-color: #0071e3;
+    --accent-gradient: linear-gradient(135deg, #0071e3 0%, #4fb2ff 100%);
+    --accent-glow: 0 8px 20px rgba(0, 113, 227, 0.3);
+    --danger-color: #ff3b30;
+    --danger-glow: 0 8px 20px rgba(255, 59, 48, 0.3);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --table-header: rgba(0, 0, 0, 0.02);
+    --table-hover: rgba(0, 0, 0, 0.04);
+    
+    /* Umbre complexe și raze */
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    --shadow-input-focus: 0 0 0 4px rgba(0, 113, 227, 0.15);
+    --radius-xl: 24px;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    
+    /* Timpi pentru animații */
+    --spring-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --smooth-easing: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: 0.2s ease;
+    --transition-slow: 0.5s var(--smooth-easing);
+}
+
+
+
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #000000 0%, #1a1a1c 100%);
+    --glass-bg: rgba(30, 30, 32, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --text-main: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --accent-color: #2997ff;
+    --accent-gradient: linear-gradient(135deg, #2997ff 0%, #005bb5 100%);
+    --accent-glow: 0 8px 20px rgba(41, 151, 255, 0.2);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --table-header: rgba(255, 255, 255, 0.02);
+    --table-hover: rgba(255, 255, 255, 0.05);
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --shadow-input-focus: 0 0 0 4px rgba(41, 151, 255, 0.2);
+}
+
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-main);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 20px;
+    transition: background 0.5s ease, color 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-glass);
+    animation: slideUpFade 0.8s var(--smooth-easing) forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efect de strălucire ambientală în spatele containerului */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at top right, rgba(0,113,227,0.05), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container > * { position: relative; z-index: 1; }
+
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+}
+
+h1 { font-size: 2.8rem; background: var(--text-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+h2 { font-size: 1.8rem; margin-top: 40px; }
+p { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.05rem; }
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 40px;
+}
+
+body.dark nav { background: rgba(0, 0, 0, 0.3); }
+
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+}
+
+.nav-links a:hover {
+    color: var(--text-main);
+    background: var(--table-hover);
+    transform: translateY(-2px);
+}
+
+
+.form-group { margin-bottom: 24px; position: relative; }
+
+label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], select {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    color: var(--text-main);
+    transition: var(--transition-fast);
+    backdrop-filter: blur(5px);
+}
+
+body.dark input, body.dark select { background: rgba(0, 0, 0, 0.2); }
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-input-focus);
+    background: var(--glass-bg);
+}
+
+button, .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 32px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: 50px; /* Butoane tip pilulă */
+    cursor: pointer;
+    transition: all 0.3s var(--spring-easing);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: var(--accent-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 113, 227, 0.4);
+}
+
+.btn-primary:active { transform: scale(0.95); }
+
+.btn-danger {
+    background: var(--danger-color);
+    color: white;
+    box-shadow: var(--danger-glow);
+}
+
+.btn-danger:hover { background: #ff2a1f; transform: translateY(-2px); }
+
+
+
+.table-responsive {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+body.dark .table-responsive { background: rgba(0, 0, 0, 0.2); }
+
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+
+th, td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    background: var(--table-header);
+}
+
+th:first-child { border-top-left-radius: var(--radius-md); }
+th:last-child { border-top-right-radius: var(--radius-md); }
+
+tr { transition: background var(--transition-fast); animation: fadeIn 0.5s ease forwards; }
+tr:hover td { background: var(--table-hover); }
+tr:last-child td { border-bottom: none; }
+
+
+.alert {
+    padding: 16px 24px;
+    border-radius: var(--radius-lg);
+    margin-bottom: 24px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    display: none;
+    animation: slideUpFade 0.4s ease;
+}
+
+.alert.visible { display: block; }
+.alert-success { background: rgba(52, 199, 89, 0.15); color: #248a3d; border: 1px solid rgba(52, 199, 89, 0.3); }
+body.dark .alert-success { color: #32d74b; }
+.alert-error { background: rgba(255, 59, 48, 0.15); color: var(--danger-color); border: 1px solid rgba(255, 59, 48, 0.3); }
+
+
+@media (max-width: 768px) {
+    .container { padding: 24px; border-radius: var(--radius-lg); }
+    h1 { font-size: 2.2rem; }
+    nav { flex-direction: column; gap: 16px; align-items: stretch; }
+    .nav-links { flex-direction: column; text-align: center; }
+}

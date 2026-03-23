@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preferințe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light">
+  <div class="page-shell">
+    <header class="topbar glass">
+      <div class="brand-wrap">
+        <div class="brand-dot"></div>
+        <span class="brand">Preferințe</span>
+      </div>
+      <nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="preferences.html">Preferințe</a></li>
+        <li><a href="cookies-info.html">Cookies Info</a></li>
+        
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="cart.html">Coș</a></li>
+        <li><a href="login.html">Autentificare</a></li>
+    </ul>
+
+    <div class="theme-switch-wrapper">
+        <label for="theme-toggle" style="margin-bottom: 0; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Dark Mode</label>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+</nav>
+    </header>
+
+    <main class="container narrow">
+      <section class="card form-card">
+        <div class="section-head">
+          <h1>Setări utilizator</h1>
+        </div>
+
+        <div id="preferencesAlert"></div>
+
+        <form id="preferencesForm" class="form-grid">
+          <div class="form-group">
+            <label for="username">Nume utilizator</label>
+            <input type="text" id="username" name="username" placeholder="Ex: Eduard" />
+          </div>
+
+          <div class="form-group">
+            <label for="theme">Tema</label>
+            <select id="theme" name="theme">
+              <option value="light">Luminos</option>
+              <option value="dark">Întunecat</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="language">Limba</label>
+            <select id="language" name="language">
+              <option value="Română">Română</option>
+              <option value="English">English</option>
+              <option value="Français">Français</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fontSize">Dimensiune font</label>
+            <select id="fontSize" name="fontSize">
+              <option value="14">14px</option>
+              <option value="16">16px</option>
+              <option value="18">18px</option>
+              <option value="20">20px</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Salvează preferințele</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/cookies.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

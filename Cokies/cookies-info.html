@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Informații Cookies și Storage</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light">
+  <div class="page-shell">
+    <header class="topbar glass">
+      <div class="brand-wrap">
+        <div class="brand-dot"></div>
+        <span class="brand">Cookies & Storage</span>
+      </div>
+      <nav>
+    <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="preferences.html">Preferințe</a></li>
+        <li><a href="cookies-info.html">Cookies Info</a></li>
+        
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="cart.html">Coș</a></li>
+        <li><a href="login.html">Autentificare</a></li>
+    </ul>
+
+    <div class="theme-switch-wrapper">
+        <label for="theme-toggle" style="margin-bottom: 0; font-size: 0.85rem; font-weight: 600; cursor: pointer;">Dark Mode</label>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+</nav>
+    </header>
+
+    <main class="container">
+      <div id="infoAlert"></div>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Cookies</h2>
+        </div>
+        <p><strong>document.cookie:</strong></p>
+        <pre id="rawCookies" class="code-block"></pre>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Nume</th>
+                <th>Valoare</th>
+                <th>Lungime</th>
+                <th>Acțiune</th>
+              </tr>
+            </thead>
+            <tbody id="cookiesInfoBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>localStorage</h2>
+        </div>
+        <pre id="localJson" class="code-block"></pre>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+                <th>Dimensiune</th>
+                <th>Acțiune</th>
+              </tr>
+            </thead>
+            <tbody id="localInfoBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>sessionStorage</h2>
+        </div>
+        <pre id="sessionJson" class="code-block"></pre>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cheie</th>
+                <th>Valoare</th>
+                <th>Dimensiune</th>
+                <th>Acțiune</th>
+              </tr>
+            </thead>
+            <tbody id="sessionInfoBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>Tabel comparativ</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Caracteristică</th>
+                <th>Cookies</th>
+                <th>localStorage</th>
+                <th>sessionStorage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Capacitate</td>
+                <td>~4KB</td>
+                <td>~5-10MB</td>
+                <td>~5MB</td>
+              </tr>
+              <tr>
+                <td>Expirare</td>
+                <td>Setabilă</td>
+                <td>Persistă</td>
+                <td>Până la închiderea tab-ului</td>
+              </tr>
+              <tr>
+                <td>Trimis la server?</td>
+                <td>Da</td>
+                <td>Nu</td>
+                <td>Nu</td>
+              </tr>
+              <tr>
+                <td>Accesibil din?</td>
+                <td>Browser + server</td>
+                <td>Doar JavaScript</td>
+                <td>Doar JavaScript</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/cookies.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
